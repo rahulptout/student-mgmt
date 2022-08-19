@@ -1,13 +1,13 @@
 <%= form_with model: student do |form|%>
 
-  <% if @student.errors.any? %>
-    <% @student.errors.full_messages.each do |message|%>
-      <p><%= message %></p>
-    <% end %>
-  <% end %>
+
+
+
+
   <div>
     <%= form.label :first_name %><br>
     <%= form.text_field :first_name %>
+
   </div>
   <div>
     <%= form.label :last_name %><br>
@@ -16,6 +16,10 @@
   <div>
     <%= form.label :email %><br>
     <%= form.text_field :email %>
+    <% @student.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+    <%#=  binding.pry %>
   </div>
 
   <div>
@@ -26,6 +30,10 @@
   <div>
     <%= form.label :contact_number %><br>
     <%= form.text_field :contact_number %>
+  </div>
+  <div>
+    <%= form.label :dob %><br>
+    <%= form.date_field :dob %>
   </div>
   <div>
     <%= form.submit%>
