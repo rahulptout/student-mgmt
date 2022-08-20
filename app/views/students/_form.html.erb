@@ -1,41 +1,45 @@
 <%= form_with model: student do |form|%>
 
 
+<div id="main-div">
 
 
-
-  <div>
+  <div class="sub-div">
     <%= form.label :first_name %><br>
     <%= form.text_field :first_name %>
 
   </div>
-  <div>
+  <div class="sub-div">
     <%= form.label :last_name %><br>
     <%= form.text_field :last_name %>
   </div>
-  <div>
+  <div class="sub-div">
     <%= form.label :email %><br>
     <%= form.text_field :email %>
     <% @student.errors.full_messages_for(:email).each do |message| %>
       <div><%= message %></div>
     <% end %>
-    <%#=  binding.pry %>
+
   </div>
 
-  <div>
+  <div class="sub-div">
     <%= form.label :address %><br>
     <%= form.text_field :address %>
   </div>
 
-  <div>
+  <div class="sub-div">
     <%= form.label :contact_number %><br>
     <%= form.text_field :contact_number %>
   </div>
-  <div>
-    <%= form.label :dob %><br>
+  <div class="sub-div">
+    <%= form.label(:q, "dob:") %><br>
     <%= form.date_field :dob %>
   </div>
-  <div>
+  <div class="sub-div">
     <%= form.submit%>
   </div>
+
+</div>
+
+
 <% end %>
